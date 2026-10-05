@@ -25,8 +25,10 @@ SDL_AppResult SDL_AppInit(void** appstate, int argc, char** argv)
     // create the device
     device = SDL_CreateGPUDevice(SDL_GPU_SHADERFORMAT_MSL, true, "metal");
 #else
+    SDL_SetHint(SDL_HINT_GPU_DRIVER, "direct3d12");
+
     // create the device
-    device = SDL_CreateGPUDevice(SDL_GPU_SHADERFORMAT_SPIRV, true, NULL);
+    device = SDL_CreateGPUDevice(SDL_GPU_SHADERFORMAT_DXIL, true, NULL);
 #endif
     if (!device) {
         SDL_Log("failed to create GPU device: %s", SDL_GetError());
