@@ -1,0 +1,6 @@
+---
+BasedOnStyle: WebKit
+SortIncludes: false
+IndentCaseLabels: true
+NamespaceIndentation: All
+...
